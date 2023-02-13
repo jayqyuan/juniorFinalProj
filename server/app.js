@@ -7,6 +7,8 @@ const app = express()
 // static middleware
 app.use(express.static(path.join(__dirname, '..','public')))
 
+app.use("/api", require("./db/api"));
+
 app.use(cors())
 app.use(volleyball)
 

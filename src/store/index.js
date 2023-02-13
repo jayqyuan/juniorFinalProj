@@ -6,7 +6,9 @@ import { configureStore } from "@reduxjs/toolkit";
 
 
 const store = configureStore({
-  reducer: {}
+  reducer: {
+    student: 'dss'
+  }
 });
 
 export default store;

@@ -1,14 +1,16 @@
 const Sequelize = require('sequelize')
-import db from '../database'
+const db = require('../database')
 
 const Students = db.define("student", {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
+    
   },
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
+    
   },
   email: {
     type: Sequelize.STRING,

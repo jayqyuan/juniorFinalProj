@@ -1,12 +1,13 @@
 const db = require('./database')
-const Student = require('./models/students')
-const Campus = require('./models/campuses')
+const { Campuses } = require('./models/campuses')
+const { Students } = require('./models/students')
 
-Student.BelongsTo(Campus);
-Campus.hasMany(Student, {foreignKey: 'campusId'})
+
+Students.belongsTo(Campuses)
+Campuses.hasMany(Students, {foreignKey: 'campusId'})
 
 module.exports = {
     db,
-    Student, 
-    Campus
+    Students, 
+    Campuses,
 }

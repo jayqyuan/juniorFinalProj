@@ -8,9 +8,9 @@
 
   <details>
 
-- [ ] Write a component to display a list of all campuses (at least their names and images)
+- [✅] Write a component to display a list of all campuses (at least their names and images)
 - [ ] Write a campuses sub-reducer to manage campuses in your Redux store
-- [ ] Display the all-campuses component when the url matches `/campuses`
+- [✅] Display the all-campuses component when the url matches `/campuses`
 
   </details>
 
@@ -18,9 +18,9 @@
 
   <details>
 
-- [ ] Write a component to display a list of all students (at least their names)
+- [✅] Write a component to display a list of all students (at least their names)
 - [ ] Write a students sub-reducer to manage students in your Redux store
-- [ ] Display the all-students component when the url matches `/students`
+- [✅] Display the all-students component when the url matches `/students`
 
   </details>
 
@@ -28,7 +28,7 @@
 
   <details>
 
-- [ ] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
+- [✅] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
   </details>
 
@@ -38,7 +38,7 @@
 
   <details>
 
-- [ ] Write a function which sync's and seeds your database when your application starts
+- [✅] Write a function which sync's and seeds your database when your application starts
 
   </details>
 
@@ -46,13 +46,13 @@
 
   <details>
   
-  - [ ] Write a route to serve up all campuses
+  - [✅] Write a route to serve up all campuses
 
 - Write a `campuses` model with the following information:
-  - [ ] name - not empty or null
-  - [ ] imageUrl - with a default value
-  - [ ] address - not empty or null
-  - [ ] description - extremely large text
+  - [✅] name - not empty or null
+  - [✅] imageUrl - with a default value
+  - [✅] address - not empty or null
+  - [✅] description - extremely large text
 
   </details>
 
@@ -60,17 +60,17 @@
 
   <details>
   
-  - [ ] Write a route to serve up all students
+  - [✅] Write a route to serve up all students
 
 - Write a `students` model with the following information:
 
-  - [ ] firstName - not empty or null
-  - [ ] lastName - not empty or null
-  - [ ] email - not empty or null; must be a valid email
-  - [ ] imageUrl - with a default value
-  - [ ] gpa - decimal between 0.0 and 4.0
+  - [✅] firstName - not empty or null
+  - [✅] lastName - not empty or null
+  - [✅] email - not empty or null; must be a valid email
+  - [✅] imageUrl - with a default value
+  - [✅] gpa - decimal between 0.0 and 4.0
 
-- [ ] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
+- [✅] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
 
   </details>
 
