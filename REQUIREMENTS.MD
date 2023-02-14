@@ -9,7 +9,7 @@
   <details>
 
 - [✅] Write a component to display a list of all campuses (at least their names and images)
-- [ ] Write a campuses sub-reducer to manage campuses in your Redux store
+- [✅] Write a campuses sub-reducer to manage campuses in your Redux store
 - [✅] Display the all-campuses component when the url matches `/campuses`
 
   </details>
@@ -19,7 +19,7 @@
   <details>
 
 - [✅] Write a component to display a list of all students (at least their names)
-- [ ] Write a students sub-reducer to manage students in your Redux store
+- [✅] Write a students sub-reducer to manage students in your Redux store
 - [✅] Display the all-students component when the url matches `/students`
 
   </details>
@@ -122,7 +122,7 @@
 
 <details>
   
-   - [ ] Write a route to serve up a single student (based on their id), _including that student's campus_
+   - [✅] Write a route to serve up a single student (based on their id), _including that student's campus_
   
 </details>
 
@@ -130,7 +130,7 @@
   
 <details>
   
-   - [ ] Write a route to serve up a single campus (based on its id), _including that campuses' students_
+   - [✅] Write a route to serve up a single campus (based on its id), _including that campuses' students_
   
 </details>
 

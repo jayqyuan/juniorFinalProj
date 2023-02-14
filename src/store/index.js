@@ -3,11 +3,15 @@
 */ 
 
 import { configureStore } from "@reduxjs/toolkit";
+import campusReducers from "../reducers/campusReducers";
+import studentReducers from "../reducers/studentReducers";
+
 
 
 const store = configureStore({
   reducer: {
-    student: 'dss'
+    student: studentReducers,
+    campus: campusReducers
   }
 });
 

@@ -1,11 +1,13 @@
-const { Campuses } = require('../models/campuses');
-const { Students } = require('../models/students');
+const { Campuses } = require('../index');
+const { Students } = require('../index');
 
 const router = require('express').Router()
 
 router.get('/students', async(req, res, next)=>{
     try{
-        const students = await Students.findAll()
+        const students = await Students.findAll({
+          include: Campuses
+        })
         res.send(students)
     }catch(e){
         next(e)
@@ -14,8 +16,32 @@ router.get('/students', async(req, res, next)=>{
 
 router.get("/campus", async (req, res, next) => {
   try {
-    const campus = await Campuses.findAll();
+    const campus = await Campuses.findAll({
+      include: Students
+    });
     res.send(campus);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.get('/campus/:id', async(req, res, next)=>{
+    try{
+        const campus = await Campuses.findByPk(req.params.id,{
+          include: Students
+        })
+        res.send(campus)
+    }catch(e){
+        next(e)
+    }
+})
+
+router.get("/students/:id", async (req, res, next) => {
+  try {
+    const student = await Students.findByPk(req.params.id, {
+      include: Campuses
+    });
+    res.send(student);
   } catch (e) {
     next(e);
   }

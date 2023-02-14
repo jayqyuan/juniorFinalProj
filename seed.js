@@ -16,6 +16,7 @@ const students = [
     imageUrl:
       "https://i.insider.com/61f16c8ae996470011907acd?width=900&format=jpeg",
     gpa: "3.9",
+    campusId: 3,
   },
   {
     firstName: "Saitama",
@@ -23,6 +24,7 @@ const students = [
     email: "capedbaldy@hero.assc",
     imageUrl: "https://miro.medium.com/max/1400/1*2bjwCLaA8TfH40OXcyLNvA.png",
     gpa: "2.1",
+    campusId: 2,
   },
   {
     firstName: "Wendeline",
@@ -30,6 +32,7 @@ const students = [
     email: "wchurchard0@trustme.edu",
     imageUrl: "http://dummyimage.com/187x100.png/ff4444/ffffff",
     gpa: "2.9",
+    campusId: 1,
   },
   {
     firstName: "Ronald",
@@ -38,6 +41,7 @@ const students = [
     imageUrl:
       "https://s3-prod.adage.com/s3fs-public/ronald-mcdonald-052011.jpg",
     gpa: "4.0",
+    campusId: 2,
   },
   {
     firstName: "Chad",
@@ -46,6 +50,7 @@ const students = [
     imageUrl:
       "https://www.the-sun.com/wp-content/uploads/sites/6/2021/10/NINTCHDBPICT000687721862.jpg",
     gpa: "1.0",
+    campusId: 1,
   },
   {
     firstName: "Eren",
@@ -54,6 +59,7 @@ const students = [
     imageUrl:
       "https://sm.ign.com/t/ign_in/screenshot/default/eren-final-titan_68cm.1280.jpg",
     gpa: "3.7",
+    campusId: 4,
   },
   {
     firstName: "Mikasa",
@@ -61,6 +67,7 @@ const students = [
     email: "mikasa@aot.com",
     imageUrl: "https://i.ytimg.com/vi/HwY_2j0mdpk/maxresdefault.jpg",
     gpa: "3.9",
+    campusId: 4,
   },
 ];
 
@@ -100,17 +107,17 @@ const campuses = [
 const seed = async () => {
   try {
     await db.sync({ force: true });
-
+    await Promise.all(
+          campuses.map((campus) => {
+            return Campuses.create(campus);
+          })
+        );
     await Promise.all(
       students.map((student) => {
         return Students.create(student);
       })
     );
-        await Promise.all(
-          campuses.map((campus) => {
-            return Campuses.create(campus);
-          })
-        );
+    
 
     console.log(green("Seeding success!"));
     db.close();
