@@ -25,7 +25,7 @@ function SingleStudent() {
     <Link to={`/campus/${campus.id}`}>{campus.name}</Link>}</div>
     <div>Email: {email}</div>
     <div>GPA: {gpa}</div>
-    <img src={imageUrl}/>
+    <img src={imageUrl} alt={`very beautiful pic of ${firstName}`}/>
     </>
   ) }
 }
