@@ -1,7 +1,9 @@
 const { Campuses } = require('../index');
 const { Students } = require('../index');
+const express = require("express");
 
 const router = require('express').Router()
+
 
 router.get('/students', async(req, res, next)=>{
     try{
@@ -48,13 +50,12 @@ router.get("/students/:id", async (req, res, next) => {
 });
 
 router.post('/students', async (req, res, next)=>{
-  const {newStudent} = await Students.create({
-    where:{
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      
-    }
-  })
+  console.log(req.body, 'this is requestBody')
+  try {
+    res.status(201).send(await Students.create(req.body))
+  } catch (error) {
+    console.log('no data')
+  }
 })
 
 router.use((req, res, next) => {

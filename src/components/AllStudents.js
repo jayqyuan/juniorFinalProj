@@ -27,7 +27,7 @@ function AllStudents() {
     // },[])
 
 const dispatch = useDispatch();
-const studentData = useSelector(showStudents).flat();
+const studentData = useSelector(showStudents);
 useEffect(()=>{
   dispatch(getStudentsAsync())
   setloading(false)

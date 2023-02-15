@@ -28,6 +28,7 @@ function AllCampuses() {
 
     const dispatch = useDispatch();
     const campusData = useSelector(showCampus).flat()
+    console.log(campusData)
     useEffect(()=>{
         dispatch(getCampussAsync());
         setloading(false)

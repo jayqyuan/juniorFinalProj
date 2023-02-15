@@ -1,15 +1,67 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addStudentsAsync } from "../reducers/studentReducers";
 
 function AddStudents() {
+  const dispatch = useDispatch();
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    imageUrl: "",
+    gpa: "",
+  });
+
+  // console.log(form)
+
+  const changeeValue = (prop) => (event) => {
+    setForm({
+      ...form,
+      [prop]: event.target.value,
+    });
+  };
+
   return (
-    <>
-    <form>
-        <label>First Name?
-        <input type={'text'} value ='firstName'/>
-        </label>
-    </form>
-    </>
-  )
+    <div className="addStudentsPage">
+      <div>Add New Student</div>
+      <input
+        placeholder="first name"
+        type="text"
+        value={form.firstName}
+        onChange={changeeValue("firstName")}
+      />
+      <input
+        placeholder="last name"
+        type="text"
+        value={form.lastName}
+        onChange={changeeValue("lastName")}
+      />
+      <input
+        placeholder="email"
+        type="email"
+        value={form.email}
+        onChange={changeeValue("email")}
+      />
+      <input
+        placeholder="image URL"
+        type="url"
+        value={form.imageUrl}
+        onChange={changeeValue("imageUrl")}
+      />
+      <input
+        placeholder="gpa"
+        type="number"
+        step="0.1"
+        min="0"
+        max="4"
+        value={form.gpa}
+        onChange={changeeValue("gpa")}
+      />
+      <button onClick={() => dispatch(addStudentsAsync({ form }))}>
+        Submit
+      </button>
+    </div>
+  );
 }
 
-export default AddStudents
+export default AddStudents;

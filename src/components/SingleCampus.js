@@ -8,7 +8,7 @@ function SingleCampus() {
     const dispatch = useDispatch()
     const singleCampus = useSelector(showSingleCampus)
     const {name, imageURL, address, description, students} = singleCampus
-    console.log(singleCampus)
+   
 
     useEffect(()=>{
         dispatch(getSingleCampusAsync(id))

@@ -4,7 +4,6 @@ import AllCampuses from './AllCampuses';
 import AllStudents from './AllStudents';
 import SingleCampus from './SingleCampus';
 import SingleStudent from './singleStudent';
-import addStudents from './AddStudents';
 import AddStudents from './AddStudents';
 
 /* 
@@ -23,10 +22,8 @@ const Main = () => {
           <Route element={<AllStudents />} path={"/students"} />
           <Route path={"/students/:id"} element={<SingleStudent />} />
           <Route path={"/campus/:id"} element={<SingleCampus />} />
+          <Route path={'/'} element = {<AddStudents/>}/>
         </Routes>
-        <div> Add Student
-        <AddStudents/>
-        </div>
       </div>
     );
 };
