@@ -22,6 +22,18 @@ export const getCampussAsync = (data) => async (dispatch) => {
   }
 };
 
+export const addCampusAsync = ({form}) => async (dispatch) => {  
+  try {
+    await axios.post("/api/campus",
+        form
+    );console.log(form, 'this is form')
+    // console.log(response, 'this is data')
+    // dispatch(addStudents(response));
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
 export const { getCampus } = campusSlice.actions;
 export const showCampus = (state) => state.campus.data;
 export default campusSlice.reducer;

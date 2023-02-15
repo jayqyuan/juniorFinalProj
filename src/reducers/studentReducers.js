@@ -25,8 +25,7 @@ export const getStudentsAsync = (data) => async (dispatch)=>{
         throw new Error(err)
     }
 }
-export const addStudentsAsync = ({form}) => async (dispatch) => {
-    
+export const addStudentsAsync = ({form}) => async (dispatch) => {  
   try {
     await axios.post("/api/students",
         form

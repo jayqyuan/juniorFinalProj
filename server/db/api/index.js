@@ -50,11 +50,20 @@ router.get("/students/:id", async (req, res, next) => {
 });
 
 router.post('/students', async (req, res, next)=>{
-  console.log(req.body, 'this is requestBody')
+  
   try {
     res.status(201).send(await Students.create(req.body))
   } catch (error) {
     console.log('no data')
+  }
+})
+
+router.post('/campus', async(req, res, next)=>{
+  console.log(req.body, "this is requestBody");
+  try {
+    res.status(201).send(await Campuses.create(req.body))
+  } catch (error) {
+    console.log('no data ')
   }
 })
 
