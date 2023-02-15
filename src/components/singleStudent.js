@@ -4,17 +4,19 @@ import { useParams, Link } from 'react-router-dom'
 import { getSingleStudentAsync, showSingleStudent } from '../reducers/singleStudentReducer'
 
 function SingleStudent() {
+    const [loading, setloading] = useState(false)
     const { id } = useParams()
     const dispatch = useDispatch()
     const singleStudent = useSelector(showSingleStudent)
     const {campus, email, firstName, lastName, gpa, imageUrl } = singleStudent
-    // console.log(imageUrl)
+    console.log(singleStudent)
 
     useEffect(()=>{
       dispatch(getSingleStudentAsync(id))
+      setloading(true)
     }, [dispatch])
 
-  if(singleStudent && campus){
+  if(singleStudent && campus && loading){
     const checkCampus = campus ===null
   return (
     <>
