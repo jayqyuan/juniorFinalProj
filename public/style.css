@@ -1,3 +1,27 @@
-img{
-    width: 500px;
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease;
+    text-decoration: underline;
+}
+
+img {
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+body {
+    font-family: 'Open Sans', arial, sans-serif;
+    margin:20px;
+    background: linear-gradient(45deg, #eee, #fff);
+    background-attachment: fixed;
+    letter-spacing: 0.03em;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
 }

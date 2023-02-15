@@ -47,6 +47,16 @@ router.get("/students/:id", async (req, res, next) => {
   }
 });
 
+router.post('/students', async (req, res, next)=>{
+  const {newStudent} = await Students.create({
+    where:{
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      
+    }
+  })
+})
+
 router.use((req, res, next) => {
   const err = new Error("API route not found!");
   err.status = 404;
