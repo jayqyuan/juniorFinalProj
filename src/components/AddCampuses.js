@@ -36,7 +36,7 @@ function AddCampuses() {
         onChange={changeeValue("address")}
       />
       <input placeholder="image URL"
-        type="url"
+        type="text"
         value={form.imageURL}
         onChange={changeeValue("imageURL")}
       />

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { getSingleCampusAsync, showSingleCampus } from '../reducers/singleCampusReducer'
+import { editSingleCampusAsync, getSingleCampusAsync, showSingleCampus } from '../reducers/singleCampusReducer'
 import EditCampus from './EditCampus'
 
 function SingleCampus() {
@@ -13,7 +13,9 @@ function SingleCampus() {
 
     useEffect(()=>{
         dispatch(getSingleCampusAsync(id))
+        dispatch(editSingleCampusAsync(id))
     },[dispatch])
+
 
 if(singleCampus){
   return (
