@@ -36,6 +36,15 @@ export const deleteSingleCampusAsync = (id)=>async()=>{
   }
 }
 
+export const editSingleCampusAsync = ({form, id}) => async ()=>{
+  try {
+    await axios.put(`/api/campus/${id}`, form)
+  } catch (error) {
+    throw new Error(error);
+    console.log(error.message)
+  }
+}
+
 export const { getSingleCampus } = singleCampusSlice.actions;
 export const showSingleCampus = (state) => state.singleCampus.data;
 export default singleCampusSlice.reducer;

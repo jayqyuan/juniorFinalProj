@@ -99,6 +99,22 @@ router.delete('/students/:id', async(req, res, next)=>{
   }
 })
 
+//editting function
+
+router.put('/campus/:id', async(req, res, next)=>{
+  try {
+    res.status(201).send(await Campuses.update(req.body,{
+      where:{
+        id: req.params.id
+      }
+    }));
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+//for bad API URL
+
 router.use((req, res, next) => {
   const err = new Error("API route not found!");
   err.status = 404;

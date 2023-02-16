@@ -28,9 +28,8 @@ export const deleteSingleStudentAsync = (id)=>async()=>{
     return data
   } catch (error) {
     throw new Error(err);
-
   }
-}
+};
 
 export const { getSingleStudent } = singleStudentSlice.actions;
 export const showSingleStudent = (state) => state.singleStudent.data;

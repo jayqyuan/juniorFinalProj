@@ -30,7 +30,7 @@ if(singleCampus){
             )
         }):'please add more students'}
     </ul>
-    <EditCampus/>
+    <EditCampus id = {id}/>
     </>
   )}
 }
