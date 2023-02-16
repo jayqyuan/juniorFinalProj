@@ -1,3 +1,5 @@
+import { deleteSingleCampus } from "./campusReducers";
+
 const { createSlice } = require("@reduxjs/toolkit");
 const axios = require("axios");
 
@@ -10,6 +12,9 @@ const singleCampusSlice = createSlice({
     getSingleCampus: (state, action) => {
       state.data = action.payload;
     },
+   
+    
+
   },
 });
 
@@ -21,6 +26,15 @@ export const getSingleCampusAsync = (id) => async (dispatch) => {
     throw new Error(err);
   }
 };
+
+export const deleteSingleCampusAsync = (id)=>async()=>{
+  try {
+    const {data} = await axios.delete(`/api/campus/${id}`);
+    return data
+  } catch (error) {
+     throw new Error(err);
+  }
+}
 
 export const { getSingleCampus } = singleCampusSlice.actions;
 export const showSingleCampus = (state) => state.singleCampus.data;

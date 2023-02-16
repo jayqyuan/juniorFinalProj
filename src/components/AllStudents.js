@@ -4,6 +4,7 @@ import { Link, Routes, Route } from 'react-router-dom'
 import SingleStudent from './singleStudent'
 import { getStudentsAsync, showStudents } from '../reducers/studentReducers'
 import {useSelector, useDispatch} from 'react-redux'
+import { deleteSingleStudentAsync } from '../reducers/singleStudentReducer'
 
 function AllStudents() {
     // const [allStudents, setAllStudents] = useState([])
@@ -46,6 +47,7 @@ useEffect(()=>{
               <Link to={`/students/${student.id}`}>
                 {student.firstName} {student.lastName}
               </Link>
+              <button onClick={()=>dispatch(deleteSingleStudentAsync(student.id))}> X </button>
             </div>
           )
         })}

@@ -3,7 +3,8 @@ import axios from 'axios'
 import { getStudentsAsync, showStudents } from "../reducers/studentReducers";
 import { useSelector, useDispatch } from "react-redux";
 import { getCampussAsync, showCampus } from '../reducers/campusReducers';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
+import { deleteSingleCampusAsync } from '../reducers/singleCampusReducer';
 
 function AllCampuses() {
     // const [campuses, ssetAllCampuses] = useState([])
@@ -27,6 +28,7 @@ function AllCampuses() {
     // },[])
 
     const dispatch = useDispatch();
+    const Navigate = useNavigate()
     const campusData = useSelector(showCampus).flat()
     console.log(campusData)
     useEffect(()=>{
@@ -34,9 +36,9 @@ function AllCampuses() {
         setloading(false)
     }, [dispatch])
 
-    if(loading){
-        <div>loading</div>
-    } else {
+    // if(loading){
+    //     <div>loading</div>
+    // } else {
   return (
     <>
     <div>All Campuses
@@ -44,14 +46,15 @@ function AllCampuses() {
         return (
           <div key={campus.id}>
             <Link to={`/campus/${campus.id}`}>
-              {campus.name}
+              {campus.name} 
             </Link>
+            <button onClick={()=>{dispatch(deleteSingleCampusAsync(campus.id)); Navigate('/campuses')}}> X </button>
           </div>
         );
     })}
     </div>
     </>
   )}
-}
+// }
 
 export default AllCampuses

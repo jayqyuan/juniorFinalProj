@@ -10,6 +10,12 @@ const campusSlice = createSlice({
     getCampus: (state, action) => {
       state.data = [action.payload];
     },
+     deleteSingleCampus: (state, action)=>{
+      const deleteState = state.data.filter((e)=>{
+        e.id !== action.payload.id
+        return deleteState
+      })
+    }
   },
 });
 
@@ -34,6 +40,6 @@ export const addCampusAsync = ({form}) => async (dispatch) => {
   }
 };
 
-export const { getCampus } = campusSlice.actions;
+export const { getCampus, deleteSingleCampus } = campusSlice.actions;
 export const showCampus = (state) => state.campus.data;
 export default campusSlice.reducer;

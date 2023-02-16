@@ -4,7 +4,7 @@ const { Students } = require('./models/students')
 
 
 Students.belongsTo(Campuses)
-Campuses.hasMany(Students, {foreignKey: 'campusId'})
+Campuses.hasMany(Students, { foreignKey: "campusId", constraints: false });
 
 module.exports = {
     db,

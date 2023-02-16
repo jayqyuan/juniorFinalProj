@@ -4,7 +4,7 @@ const express = require("express");
 
 const router = require('express').Router()
 
-
+// get all campuses and students
 router.get('/students', async(req, res, next)=>{
     try{
         const students = await Students.findAll({
@@ -26,6 +26,8 @@ router.get("/campus", async (req, res, next) => {
     next(e);
   }
 });
+
+//get individual campus and student
 
 router.get('/campus/:id', async(req, res, next)=>{
     try{
@@ -49,6 +51,8 @@ router.get("/students/:id", async (req, res, next) => {
   }
 });
 
+//create new student and campus
+
 router.post('/students', async (req, res, next)=>{
   
   try {
@@ -67,10 +71,40 @@ router.post('/campus', async(req, res, next)=>{
   }
 })
 
+
+// delete individual campus and student 
+
+router.delete('/campus/:id', async(req, res, next)=>{
+  console.log(req.params.id, 'this is req.params')
+  try {
+    await Campuses.destroy({
+      where:{
+        id: req.params.id
+      }
+    })
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+router.delete('/students/:id', async(req, res, next)=>{
+  try {
+    await Students.destroy({
+      where:{
+        id: req.params.id
+      }
+    })
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
 router.use((req, res, next) => {
   const err = new Error("API route not found!");
   err.status = 404;
   next(err);
 });
+
+
 
 module.exports = router

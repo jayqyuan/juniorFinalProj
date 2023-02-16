@@ -16,13 +16,11 @@ function SingleStudent() {
       setloading(true)
     }, [dispatch])
 
-  if(singleStudent && campus && loading){
-    const checkCampus = campus ===null
+  if(singleStudent && loading){
   return (
     <>
     <h2>Student Name: {firstName} {lastName}</h2>
-    <div>Current Campus: {checkCampus?'none. please add attending campus': 
-    <Link to={`/campus/${campus.id}`}>{campus.name}</Link>}</div>
+    <div>Current Campus: {campus?<Link to={`/campus/${campus.id}`}>{campus.name}</Link>:'none. please add attending campus'}</div>
     <div>Email: {email}</div>
     <div>GPA: {gpa}</div>
     <img src={imageUrl} alt={`very beautiful pic of ${firstName}`}/>

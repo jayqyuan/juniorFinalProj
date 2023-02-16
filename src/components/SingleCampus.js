@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getSingleCampusAsync, showSingleCampus } from '../reducers/singleCampusReducer'
+import EditCampus from './EditCampus'
 
 function SingleCampus() {
     const { id } = useParams()
@@ -14,8 +15,7 @@ function SingleCampus() {
         dispatch(getSingleCampusAsync(id))
     },[dispatch])
 
-if(singleCampus && students){
-    const checkStudents = students ===null
+if(singleCampus){
   return (
     <>
     <h2>Campus: {name}</h2>
@@ -23,13 +23,14 @@ if(singleCampus && students){
     <img src={imageURL}/>
     <p>{description}</p>
     <ul>
-        {checkStudents?'please add more students':students.map(student=>{
+        {students?students.map(student=>{
             return (
                 <li key={student.id}>
                     <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link></li>
             )
-        })}
+        }):'please add more students'}
     </ul>
+    <EditCampus/>
     </>
   )}
 }

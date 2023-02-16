@@ -22,6 +22,16 @@ export const getSingleStudentAsync = (id) => async (dispatch) => {
   }
 };
 
+export const deleteSingleStudentAsync = (id)=>async()=>{
+  try {
+    const {data} = await axios.delete(`/api/students/${id}`)
+    return data
+  } catch (error) {
+    throw new Error(err);
+
+  }
+}
+
 export const { getSingleStudent } = singleStudentSlice.actions;
 export const showSingleStudent = (state) => state.singleStudent.data;
 export default singleStudentSlice.reducer;
