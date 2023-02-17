@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { editSingleCampusAsync, getSingleCampusAsync, showSingleCampus } from '../reducers/singleCampusReducer'
 import EditCampus from './EditCampus'
+import Unregister from './Unregister'
 
 function SingleCampus() {
     const { id } = useParams()
@@ -28,7 +29,9 @@ if(singleCampus){
         {students?students.map(student=>{
             return (
                 <li key={student.id}>
-                    <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName}</Link></li>
+                    <Link to={`/students/${student.id}`}>{student.firstName} {student.lastName} </Link>
+                    <Unregister studentId = {student.id} campusId = {id}/>
+                    </li>
             )
         }):'please add more students'}
     </ul>

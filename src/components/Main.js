@@ -6,6 +6,7 @@ import SingleCampus from './SingleCampus';
 import SingleStudent from './singleStudent';
 import AddStudents from './AddStudents';
 import AddCampuses from './AddCampuses';
+import Home from './Home';
 
 /* 
     This is you entry point for your routes
@@ -27,6 +28,7 @@ const Main = () => {
           <Route path={"/campus/:id"} element={<SingleCampus />} />
           <Route path={"/addstudent"} element={<AddStudents />} />
           <Route path={"/addcampus"} element={<AddCampuses />} />
+          <Route path={'/'} element={<Home/>}/>
         </Routes>
       </div>
     );
