@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import { getSingleStudentAsync, showSingleStudent } from '../reducers/singleStudentReducer'
+import EditStudent from './EditStudent'
 
 function SingleStudent() {
     const [loading, setloading] = useState(false)
@@ -24,6 +25,7 @@ function SingleStudent() {
     <div>Email: {email}</div>
     <div>GPA: {gpa}</div>
     <img src={imageUrl} alt={`very beautiful pic of ${firstName}`}/>
+    <EditStudent id = {id}/>
     </>
   ) }
 }

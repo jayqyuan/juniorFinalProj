@@ -113,6 +113,18 @@ router.put('/campus/:id', async(req, res, next)=>{
   }
 })
 
+router.put('/students/:id', async(req, res, next)=>{
+  try{
+    res.status(201).semd(await Students.update(req.body,{
+      where:{
+        id: req.params.id
+      }
+    }))
+  }catch(error){
+    console.log(error.message)
+  }
+})
+
 //for bad API URL
 
 router.use((req, res, next) => {

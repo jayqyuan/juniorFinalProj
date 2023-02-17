@@ -31,6 +31,14 @@ export const deleteSingleStudentAsync = (id)=>async()=>{
   }
 };
 
+export const editSingleStudentAsync = ({form, id}) =>async()=>{
+  try {
+    await axios.put(`/api/students/${id}`, form)
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 export const { getSingleStudent } = singleStudentSlice.actions;
 export const showSingleStudent = (state) => state.singleStudent.data;
 export default singleStudentSlice.reducer;
