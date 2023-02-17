@@ -27,7 +27,7 @@ export const getSingleCampusAsync = (id) => async (dispatch) => {
   }
 };
 
-export const deleteSingleCampusAsync = (id)=>async()=>{
+export const deleteSingleCampusAsync = (id)=>async(dispatch)=>{
   try {
     const {data} = await axios.delete(`/api/campus/${id}`);
     return data

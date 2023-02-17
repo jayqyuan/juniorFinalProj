@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { editSingleStudentAsync } from '../reducers/singleStudentReducer';
+import { useNavigate } from 'react-router-dom';
+import {
+	editSingleStudentAsync,
+	getSingleStudentAsync,
+} from "../reducers/singleStudentReducer";
 
 function EditStudent(props) {
     const dispatch = useDispatch();
+	const navigate = useNavigate()
 	const {id} = props
     const [form, setForm] = useState({
     firstName: "",
@@ -18,6 +23,14 @@ function EditStudent(props) {
             [prop]: event.target.value
         })
     }
+
+	const handClick = ()=>{
+		dispatch(editSingleStudentAsync({form, id}))
+		dispatch(getSingleStudentAsync(id))
+		navigate(`/students/${id}`)
+		
+	}
+
 
     return (
 			<div className="editStudent">
@@ -55,7 +68,7 @@ function EditStudent(props) {
 					value={form.gpa}
 					onChange={changeValue("gpa")}
 				/>
-                <button onClick={()=>dispatch(editSingleStudentAsync({form, id}))}>Submit Change</button>
+                <button onClick={()=>handClick()}>Submit Change</button>
 			</div>
 		);
 }

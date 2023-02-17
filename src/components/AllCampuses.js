@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { getStudentsAsync, showStudents } from "../reducers/studentReducers";
 import { useSelector, useDispatch } from "react-redux";
-import { getCampussAsync, showCampus } from '../reducers/campusReducers';
+import { deleteSingleCampus, getCampussAsync, showCampus } from '../reducers/campusReducers';
 import { Link, useNavigate, } from 'react-router-dom';
-import { deleteSingleCampusAsync } from '../reducers/singleCampusReducer';
+import { deleteSingleCampusAsync, getSingleCampus } from '../reducers/singleCampusReducer';
 
 function AllCampuses() {
     // const [campuses, ssetAllCampuses] = useState([])
@@ -29,32 +27,37 @@ function AllCampuses() {
 
     const dispatch = useDispatch();
     const Navigate = useNavigate()
-    const campusData = useSelector(showCampus).flat()
+    const campusData = useSelector(showCampus)
     console.log(campusData)
     useEffect(()=>{
         dispatch(getCampussAsync());
         setloading(false)
     }, [dispatch])
 
-    // if(loading){
-    //     <div>loading</div>
-    // } else {
+    const handleClick = (campusId)=>{
+      dispatch(deleteSingleCampusAsync(campusId))
+      dispatch(getCampussAsync())
+    }
+
+    if(loading){
+        <div>loading</div>
+    } else {
   return (
     <>
     <div>All Campuses
     {campusData.map(campus=>{
         return (
-          <div key={campus.id}>
+          <div key={campus.id} className='allCampusView'>
             <Link to={`/campus/${campus.id}`}>
               {campus.name} 
             </Link>
-            <button onClick={()=>{dispatch(deleteSingleCampusAsync(campus.id)); Navigate('/campuses')}}> X </button>
+            <button onClick={()=>handleClick(campus.id)}> Delete </button>
           </div>
         );
     })}
     </div>
     </>
   )}
-// }
+}
 
 export default AllCampuses

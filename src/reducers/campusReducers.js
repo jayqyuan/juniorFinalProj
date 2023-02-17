@@ -8,7 +8,7 @@ const campusSlice = createSlice({
   },
   reducers: {
     getCampus: (state, action) => {
-      state.data = [action.payload];
+      state.data = action.payload;
     },
      deleteSingleCampus: (state, action)=>{
       const deleteState = state.data.filter((e)=>{

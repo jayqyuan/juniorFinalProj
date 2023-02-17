@@ -7,25 +7,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import { deleteSingleStudentAsync } from '../reducers/singleStudentReducer'
 
 function AllStudents() {
-    // const [allStudents, setAllStudents] = useState([])
     const [loading, setloading] = useState(true)
-    // console.log(allStudents)
 
-    // useEffect(()=>{
-    //     const getStudentData = async()=>{
-    //         try{
-    //             const student = await Axios.get('/api/students');
-    //             const studentData = student.data;
-    //             setAllStudents(studentData);
-    //             setloading(false)
-    //             return student
-    //         } catch(e){
-    //             console.log(e.message)
-    //             setloading(true)
-    //         }
-    //     };
-    //     getStudentData()
-    // },[])
 
 const dispatch = useDispatch();
 const studentData = useSelector(showStudents);
@@ -34,20 +17,25 @@ useEffect(()=>{
   setloading(false)
 },[dispatch]);
   // console.log(studentData)
-    if(loading){
-        <div>loading</div>
-    } else {
+
+const handleClick = (studentId)=>{
+  dispatch(deleteSingleStudentAsync(studentId))
+  dispatch(getStudentsAsync())
+}
+if(loading){
+    <div>loading</div>
+} else {
   return (
     <>
       <div>
         All Students
         {studentData.map((student) => {
           return (
-            <div key={student.id}>
+            <div key={student.id} className='allStudentView'>
               <Link to={`/students/${student.id}`}>
                 {student.firstName} {student.lastName}
               </Link>
-              <button onClick={()=>dispatch(deleteSingleStudentAsync(student.id))}> X </button>
+              <button onClick={()=>handleClick(student.id)}> Delete </button>
             </div>
           )
         })}

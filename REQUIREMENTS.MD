@@ -217,7 +217,7 @@
   - Clicking the `X` button should:
 
     - [✅] Make an AJAX request that causes that campus to be removed from database
-    - [] Remove the campus from the list of campuses without needing to refresh the page
+    - [✅] Remove the campus from the list of campuses without needing to refresh the page
     
   </details>
   
@@ -229,7 +229,7 @@
   - Clicking the `X` button should:
   
     - [✅] Make an AJAX request that causes that student to be removed from database
-    - [ ] Remove the student from the list of students without needing to refresh the page
+    - [✅] Remove the student from the list of students without needing to refresh the page
 
   
   </details>
