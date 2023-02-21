@@ -5,25 +5,7 @@ import { Link, useNavigate, } from 'react-router-dom';
 import { deleteSingleCampusAsync, getSingleCampus } from '../reducers/singleCampusReducer';
 
 function AllCampuses() {
-    // const [campuses, ssetAllCampuses] = useState([])
     const [loading, setloading] = useState(true)
-    // console.log(campuses)
-
-    // useEffect(()=>{
-    //     const getCampusData = async()=>{
-    //         try{
-    //             const campuses = await axios.get('/api/campus');
-    //             const campusData = campuses.data;
-    //             ssetAllCampuses(campusData);
-    //             setloading(false)
-    //             return campuses
-    //         } catch(e){
-    //             console.log(e.message)
-    //             setloading(true)
-    //         }
-    //     };
-    //     getCampusData()
-    // },[])
 
     const dispatch = useDispatch();
     const Navigate = useNavigate()

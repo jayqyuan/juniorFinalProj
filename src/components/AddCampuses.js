@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addCampusAsync } from '../reducers/campusReducers';
 
 function AddCampuses() {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const [form, setForm] = useState({
 		name: "",
@@ -45,7 +47,7 @@ function AddCampuses() {
         value={form.description}
         onChange={changeeValue("description")}
       />
-      <button onClick={()=>dispatch(addCampusAsync({form}))}>
+      <button onClick={()=>{dispatch(addCampusAsync({form})); navigate('/campuses') }}>
         Submit
       </button>
     </div>
